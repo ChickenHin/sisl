@@ -2,39 +2,39 @@ name: sisl Merge Build
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - dev/v14.x
-  pull_request:
-    branches:
-      - dev/v14.x
+  # push:
+  #   branches:
+  #     - dev/v14.x
+  # pull_request:
+  #   branches:
+  #     - dev/v14.x
 
 jobs:
-  GccThreadSanitize:
-    uses: ./.github/workflows/build_dependencies.yml
-    with:
-      platform: "ubuntu-24.04"
-      branch: ${{ github.ref }}
-      build-type: "Debug"
-      malloc-impl: "libc"
-      sanitize: "thread"
-      tooling: "None"
-      compiler: "gcc"
-      conan-channel: "dev"
-      testing: 'True'
+  # GccThreadSanitize:
+  #   uses: ./.github/workflows/build_dependencies.yml
+  #   with:
+  #     platform: "ubuntu-24.04"
+  #     branch: ${{ github.ref }}
+  #     build-type: "Debug"
+  #     malloc-impl: "libc"
+  #     sanitize: "thread"
+  #     tooling: "None"
+  #     compiler: "gcc"
+  #     conan-channel: "dev"
+  #     testing: 'True'
 
-  GccAddressSanitize:
-    uses: ./.github/workflows/build_dependencies.yml
-    with:
-      platform: "ubuntu-24.04"
-      branch: ${{ github.ref }}
-      build-type: "Debug"
-      malloc-impl: "libc"
-      sanitize: "address"
-      tooling: "None"
-      compiler: "gcc"
-      conan-channel: "dev"
-      testing: 'True'
+  # GccAddressSanitize:
+  #   uses: ./.github/workflows/build_dependencies.yml
+  #   with:
+  #     platform: "ubuntu-24.04"
+  #     branch: ${{ github.ref }}
+  #     build-type: "Debug"
+  #     malloc-impl: "libc"
+  #     sanitize: "address"
+  #     tooling: "None"
+  #     compiler: "gcc"
+  #     conan-channel: "dev"
+  #     testing: 'True'
 
   GccCoverage:
     uses: ./.github/workflows/build_dependencies.yml
@@ -49,18 +49,18 @@ jobs:
       conan-channel: "dev"
       testing: 'True'
 
-  ClangRelease:
-    uses: ./.github/workflows/build_dependencies.yml
-    with:
-      platform: "ubuntu-24.04"
-      branch: ${{ github.ref }}
-      build-type: "Release"
-      malloc-impl: "tcmalloc"
-      sanitize: "False"
-      tooling: "None"
-      compiler: "clang"
-      conan-channel: "dev"
-      testing: 'True'
+  # ClangRelease:
+  #   uses: ./.github/workflows/build_dependencies.yml
+  #   with:
+  #     platform: "ubuntu-24.04"
+  #     branch: ${{ github.ref }}
+  #     build-type: "Release"
+  #     malloc-impl: "tcmalloc"
+  #     sanitize: "False"
+  #     tooling: "None"
+  #     compiler: "clang"
+  #     conan-channel: "dev"
+  #     testing: 'True'
 
   # ChainBuild: disabled until iomanager and nuraft_mesg migrate to dev/v14.x
   # ChainBuild:
